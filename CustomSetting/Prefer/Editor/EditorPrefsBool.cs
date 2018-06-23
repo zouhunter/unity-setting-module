@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace InteractSystem.Prefer
+namespace CustomSetting.Prefer
 {
     public class EditorPrefsBool : PreferValue<bool>
     {

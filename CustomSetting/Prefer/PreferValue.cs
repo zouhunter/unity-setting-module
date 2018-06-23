@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-namespace InteractSystem.Prefer
+namespace CustomSetting.Prefer
 {
     public abstract class PreferValue<T>
     {
@@ -28,10 +28,14 @@ namespace InteractSystem.Prefer
                     _value = value;
                     SetPreferValue(value);
                     //Debug.Log("record:" + key);
+                    if (onValueChanged != null){
+                        onValueChanged.Invoke(_value);
+                    }
                 }
             }
         }
         public string key;
+        public event UnityAction<T> onValueChanged;
         public PreferValue(string key)
         {
             this.key = key;

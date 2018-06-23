@@ -5,24 +5,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace InteractSystem.Prefer
+namespace CustomSetting.Prefer
 {
-    public class PlayerPrefsString : PreferValue<string>
+    public class EditorPrefsString : PreferValue<string>
     {
-        public PlayerPrefsString(string key) : base(key) { }
+        public EditorPrefsString(string key) : base(key) { }
 
         protected override string GetPreferValue()
         {
-            if (PlayerPrefs.HasKey(key))
+            if (EditorPrefs.HasKey(key))
             {
-                return PlayerPrefs.GetString(key);
+                return EditorPrefs.GetString(key);
             }
             return "";
         }
 
         protected override void SetPreferValue(string value)
         {
-            PlayerPrefs.SetString(key, value);
+            EditorPrefs.SetString(key, value);
         }
         protected override bool Equals(string a, string b)
         {
